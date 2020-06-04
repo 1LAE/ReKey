@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file alias="template.jpg">/home/ermvov/Docs/bos2/lab11/ReKey/template.jpg</file>
+<file alias="image.jpg">/home/ermvov/Docs/bos2/lab11/ReKey/image.jpg</file>
+<file alias="image_alpha.jpg">/home/ermvov/Docs/bos2/lab11/ReKey/image_alpha.jpg</file>
+</qresource>
+</RCC>
