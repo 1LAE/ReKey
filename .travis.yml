@@ -1,4 +1,5 @@
 language: cpp
+compiler: g++ -std=c++11
 
 before_install:
   - pip install --user cpp-coveralls
