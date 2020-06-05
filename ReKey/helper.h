@@ -36,23 +36,12 @@ typedef struct RGB{
 }RGB;
 
 
-class Helper : public QObject
-{
-    Q_OBJECT
-public:
-    explicit Helper(QObject *parent = nullptr);
-
-signals:
-    public slots:
-
     bool load(QString path);
     void prerender(QString color, int hue, int sat, int val, int ai, int time);
-    bool render(QString key, int hue, int sat, int val, int ai);
 
-private:
     void process(cv::Mat* frame, HSV hsv, int hue, int sat, int val, int ai);
     HSV convert(RGB rgb);
     RGB toRGB(QString color);
-};
+
 
 #endif // HELPER_H

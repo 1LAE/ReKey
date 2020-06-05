@@ -1,9 +1,9 @@
-#include <QQuickImageProvider>
 #include <QColor>
 #include <QString>
+#include <QFile>
+#include <QFileInfo>
 #include <QDir>
 #include <iostream>
-#include <experimental/filesystem>
 #include <string>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
 #include <opencv4/opencv2/imgcodecs.hpp>
@@ -15,18 +15,12 @@ using namespace cv;
 
 Video vid;
 
-Helper::Helper(QObject *parent) : QObject(parent)
-{
-
-}
-
-
-bool Helper::load(QString path){
+bool load(QString path){
 
     vid.path = path;
 
     QFile file(path);
-    if(!file.isOpen()){
+    if(!file.open(QIODevice::ReadOnly)){
         std::cerr << "No such file found\n";
         return false;
     }
@@ -34,11 +28,9 @@ bool Helper::load(QString path){
 
     if(vid.capture.isOpened()){
         vid.capture.release();
-    }
+    }    
 
-    vid.capture.open(path.toStdString());
-
-    if(!vid.capture.isOpened()){
+    if(!(bool)vid.capture.open(path.toStdString())){
         std::cerr << "Cant open video file\n";
         return false;
     }
@@ -50,22 +42,18 @@ bool Helper::load(QString path){
 
     Mat image;
     image = imread((const std::string)"../ReKey/template.jpg", IMREAD_COLOR);
-    if(image.empty()){        
+    if(image.empty()){               
         return false;
     }
 
-    if(!imwrite("../Rekey/image.jpg", image)){
-            std::cerr << "ERROR: Can't write current frame";
-    }
-    if(!imwrite("../Rekey/image_alpha.jpg", image)){
-            std::cerr << "ERROR: Can't write current alpha frame";
-    }
+    imwrite("../Rekey/image.jpg", image);
+    imwrite("../Rekey/image_alpha.jpg", image);
 
     return true;
 }
 
 
-void Helper::prerender(QString key, int hue, int sat, int val, int ai, int time){
+void prerender(QString key, int hue, int sat, int val, int ai, int time){
 
     if(time == 100){
         time = 99;
@@ -94,31 +82,4 @@ void Helper::prerender(QString key, int hue, int sat, int val, int ai, int time)
     imwrite("../ReKey/image.jpg", crop);
     resize(prerender, crop, size, scale, scale, INTER_LINEAR);
     imwrite("../ReKey/image_alpha.jpg", crop);
-}
-
-bool Helper::render(QString key, int hue, int sat, int val, int ai){
-
-    HSV hsv = convert(toRGB(key));
-    QString Path;
-    Path = vid.path.insert(vid.path.size() - 4, "_alpha");
-    VideoWriter output;
-    output.open(Path.toStdString(), VideoWriter::fourcc('m', 'p', '4', 'v'), vid.fps, Size(vid.width, vid.height));
-
-    vid.capture.set(CAP_PROP_POS_FRAMES, 0);
-    Mat frame;
-
-    for(int i = 0; i < vid.totalFrames; i++){
-
-        if(vid.capture.read(frame)){
-            process(&frame, hsv, hue, sat, val, ai);
-            output.write(frame);
-        } else {
-            std::cerr << "ERROR: Cant read frame №" << i << "\n";
-        }
-    }
-
-    output.release();
-
-    return true;
-
 }

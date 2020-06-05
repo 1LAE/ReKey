@@ -7,7 +7,19 @@
 
 using namespace cv;
 
-void Helper::process(Mat* frame, HSV hsv, int hue, int sat, int val, int ai){
+void process(Mat* frame, HSV hsv, int hue, int sat, int val, int ai){
+
+    if(hue < 0 || hue >= 360  || sat < 0 || sat > 100 || val < 0 || val > 100 || ai < 0 || ai > 100){
+
+        std::cerr << "ERROR: Invalid types range\n";
+        return;
+    }
+
+    if(!frame->data){
+        std::cerr << "ERROR: fame has no data\n";
+        return;
+    }
+
 
     HSV f_hsv;
     RGB rgb;
@@ -19,8 +31,6 @@ void Helper::process(Mat* frame, HSV hsv, int hue, int sat, int val, int ai){
 
     int bottom = (hsv.H - hue / 2) < 0 ? (hsv.H - hue / 2 + 360) : (hsv.H - hue / 2);
     int top = (hsv.H + hue / 2) > 360 ? (hsv.H + hue / 2 - 360) : (hsv.H + hue / 2);
-
-    //std::cout << hue << ' ' << sat << ' ' << val << "\n";
 
     for(int row = 0; row < frame->rows; row++){
         for(int col = 0; col < frame->cols; col++){
