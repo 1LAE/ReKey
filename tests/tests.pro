@@ -26,8 +26,6 @@ LIBS += -lgcov \
 HEADERS += \
         ../ReKey/helper.h \
         tst_allTests.h
-#        tst_convert.h \
-#        tst_process.h \
 
 SOURCES += main.cpp \    
     ../ReKey/helper.cpp \
@@ -36,5 +34,4 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += \
     ../ReKey \
-    ../
-
+    ../opencv4/
