@@ -16,14 +16,6 @@ QMAKE_CFLAGS += -Wall -Wextra -Werror
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += -lgcov \
-    -lopencv_core \
-    -lopencv_imgproc \
-    -lopencv_imgcodecs \
-    -lopencv_highgui \
-    -lopencv_objdetect \
-    -lopencv_video \
-    -lopencv_videoio
-
 
 HEADERS += \
         ../ReKey/helper.h \

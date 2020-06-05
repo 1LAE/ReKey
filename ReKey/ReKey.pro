@@ -22,10 +22,8 @@ HEADERS += \
 
 INCLUDEPATH += ../opencv4/
 
-LIBS += -lopencv_core \
-        -lopencv_imgproc \
-        -lopencv_imgcodecs \
-        -lopencv_highgui \
-        -lopencv_objdetect \
-        -lopencv_video \
-        -lopencv_videoio
+#LIBS += -lopencv_core \
+#        -lopencv_imgproc \
+#        -lopencv_imgcodecs \
+#        -lopencv_video \
+#        -lopencv_videoio
