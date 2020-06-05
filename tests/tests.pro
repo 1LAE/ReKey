@@ -36,4 +36,4 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += \
     ../ReKey \
-    ../opencv4/
+
