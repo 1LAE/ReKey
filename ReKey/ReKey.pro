@@ -25,4 +25,5 @@ LIBS += -lopencv_core \
         -lopencv_imgcodecs \
         -lopencv_videoio
 
-INCLUDEPATH += ../opencv4/
+INCLUDEPATH += /usr/local/include
+
