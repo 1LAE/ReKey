@@ -1,5 +1,5 @@
 language:
-  - cpp
+  - cpp11
 
 sudo: required
 dist: tusty
