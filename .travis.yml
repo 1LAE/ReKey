@@ -17,7 +17,7 @@ addons:
 script:
   - qmake
   - make
-  - ./tests/
+  - ./tests/tests
 
 
 after_success:
