@@ -1,5 +1,6 @@
 language: cpp
-compiler: g++ -std=c++11
+
+sudo: required
 
 before_install:
   - pip install --user cpp-coveralls
@@ -9,8 +10,18 @@ addons:
       organization: "1lae"
       token:
          secure: "997037cc3da8ae31f9918e4c3d92a5df42c89dd0"
+    apt:
+      sources:
+      - ubuntu-toolchain-r-test
+      packages:
+      - gcc-5
+      - g++-5
 
 script:
+      - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
+      - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++
+      - gcc --version
+      - g++ --version
   - qmake
   - make
   - ./tests/tests
