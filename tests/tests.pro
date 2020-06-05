@@ -36,5 +36,5 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += \
     ../ReKey \
-    /usr/local/include/opencv4/
+    ../opencv4/
 
