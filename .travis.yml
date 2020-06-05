@@ -3,15 +3,9 @@ compiler: g++
 
 before_install:
   - pip install --user cpp-coveralls
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update -qq
-
-install:
-  - sudo apt-get https://github.com/opencv/opencv.git
- 
 
 addons:
-    sonarcloud:
+    sonarcloud:z
       organization: "1lae"
       token:
          secure: "997037cc3da8ae31f9918e4c3d92a5df42c89dd0"
