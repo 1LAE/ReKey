@@ -10,8 +10,6 @@ addons:
       token:
          secure: "997037cc3da8ae31f9918e4c3d92a5df42c89dd0"
 
-
-
 script:
   - qmake
   - make
