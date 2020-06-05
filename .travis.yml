@@ -6,13 +6,6 @@ dist: tusty
 
 compiler: gcc
 
-before_script:
-    - sudo apt-get install build-essential
-    - sudo apt-get install cmake
-    - sudo apt-get install libboost-all-dev
-    - sudo apt-get install libopencv-dev
-    - sudo apt-get install libeigen2-dev
-
 before_install:
   - pip install --user cpp-coveralls
 

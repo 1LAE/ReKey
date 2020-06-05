@@ -20,7 +20,7 @@ SOURCES += \
 HEADERS += \
     helper.h
 
-INCLUDEPATH += /usr/include/
+INCLUDEPATH += ../opencv4/
 
 LIBS += -lopencv_core \
         -lopencv_imgproc \

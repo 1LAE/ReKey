@@ -4,6 +4,7 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
+CONFIG += c++11
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
@@ -32,6 +33,7 @@ SOURCES += main.cpp \
     ../ReKey/convert.cpp \
     ../ReKey/process_frame.cpp
 
+
 INCLUDEPATH += \
     ../ReKey \
-    /usr/include/
+    ../opencv4/
