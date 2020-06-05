@@ -5,6 +5,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
 CONFIG += c++11
+CONFIG += opencv
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
