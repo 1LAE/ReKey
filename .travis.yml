@@ -4,7 +4,7 @@ before_install:
   - pip install --user cpp-coveralls
 
 addons:
-    sonarcloud:z
+    sonarcloud:
       organization: "1lae"
       token:
          secure: "997037cc3da8ae31f9918e4c3d92a5df42c89dd0"
