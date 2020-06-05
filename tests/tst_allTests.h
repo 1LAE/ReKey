@@ -8,11 +8,13 @@
 #include <opencv2/videoio.hpp>
 #include "helper.h"
 
+
 TEST(load,exist){
 
     QString path = "../tests/videos/video.mp4";
     bool ret;
     ret = load(path);
+
 
     ASSERT_EQ(ret, true);
 }
@@ -26,7 +28,7 @@ TEST(load, empty){
     EXPECT_EQ(false, ret);
     std::string output = testing::internal::GetCapturedStderr();
 
-    EXPECT_EQ("No such file found\n", output);
+    ASSERT_EQ("No such file found\n", output);
 }
 
 TEST(load, expansion){

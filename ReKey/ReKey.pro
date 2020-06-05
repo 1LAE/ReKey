@@ -20,10 +20,9 @@ SOURCES += \
 HEADERS += \
     helper.h
 
-INCLUDEPATH += ../opencv4/
+LIBS += -lopencv_core \
+        -lopencv_imgproc \
+        -lopencv_imgcodecs \
+        -lopencv_videoio
 
-#LIBS += -lopencv_core \
-#        -lopencv_imgproc \
-#        -lopencv_imgcodecs \
-#        -lopencv_video \
-#        -lopencv_videoio
+INCLUDEPATH += ../opencv4/

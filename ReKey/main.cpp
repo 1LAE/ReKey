@@ -2,7 +2,6 @@
 
 int main()
 {
-    int a;
 
     load("aaaaa");
 
