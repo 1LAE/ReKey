@@ -2,7 +2,7 @@ dist: trusty
 sudo: required
 
 language: cpp
-compiler: gcc
+compiler: g++ --std=c++11
 
 before_install:
   - pip install --user cpp-coveralls
