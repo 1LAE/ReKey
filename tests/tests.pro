@@ -23,8 +23,8 @@ LIBS += \
 #    -L/usr/lib/x86_64-linux-gnu \
     -lopencv_core \
     -lopencv_imgproc \
-    -lopencv_video \
-    -lopencv_imgcodecs
+    -lopencv_video
+#    -lopencv_imgcodecs
 
 HEADERS += \
         ../ReKey/helper.h \

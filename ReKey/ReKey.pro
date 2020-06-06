@@ -26,8 +26,8 @@ LIBS += \
         -lopencv_core \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
-        -lopencv_video \
-        -lopencv_imgcodecs
+        -lopencv_video
+#        -lopencv_imgcodecs
 
 INCLUDEPATH += ../opencv4/
 
