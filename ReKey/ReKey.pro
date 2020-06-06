@@ -22,11 +22,11 @@ HEADERS += \
 
 LIBS += -lopencv_core \
 #        -L/usr/local/lib \
-        -L/usr/lib/x86_64-linux-gnu \
+#        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
-        -lopencv_imgcodecs \
-        -lopencv_videoio \
-        -lopencv_video
+        -lopencv_video \
+#        -lopencv_imgcodecs \
+#        -lopencv_videoio
 
 INCLUDEPATH += ../opencv4/
 
