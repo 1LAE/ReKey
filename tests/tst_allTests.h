@@ -8,74 +8,74 @@
 //#include "opencv2/videoio/videoio.hpp"
 #include "helper.h"
 
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/videoio.hpp>
+//#include <opencv2/core.hpp>
+//#include <opencv2/imgproc.hpp>
+//#include <opencv2/imgcodecs.hpp>
+//#include <opencv2/videoio.hpp>
 
-TEST(load,exist){
+//TEST(load,exist){
 
-    QString path = "../tests/videos/video.mp4";
-    bool ret;
-    ret = load(path);
-    ASSERT_EQ(ret, true);
-}
-
-
-TEST(load, empty){
-
-    QString path = "abc";
-    bool ret;
-    testing::internal::CaptureStderr();
-    ret = load(path);
-    EXPECT_EQ(false, ret);
-    std::string output = testing::internal::GetCapturedStderr();
-
-    ASSERT_EQ("No such file found\n", output);
-}
-
-TEST(load, expansion){
-
-    QString path = "../tests/videos/video";
-    bool ret;
-    testing::internal::CaptureStderr();
-    ret = load(path);
-    EXPECT_EQ(true, ret);
-    std::string output = testing::internal::GetCapturedStderr();
-
-    EXPECT_EQ("", output);
-}
+//    QString path = "../tests/videos/video.mp4";
+//    bool ret;
+//    ret = load(path);
+//    ASSERT_EQ(ret, true);
+//}
 
 
-TEST(load, dir){
+//TEST(load, empty){
 
-    QString path = "../tests/videos/video_denied";
-    bool ret;
-    testing::internal::CaptureStderr();
-    ret = load(path);
-    EXPECT_EQ(false, ret);
-    std::string output = testing::internal::GetCapturedStderr();
+//    QString path = "abc";
+//    bool ret;
+//    testing::internal::CaptureStderr();
+//    ret = load(path);
+//    EXPECT_EQ(false, ret);
+//    std::string output = testing::internal::GetCapturedStderr();
 
-    EXPECT_EQ("No such file found\n", output);
-}
+//    ASSERT_EQ("No such file found\n", output);
+//}
+
+//TEST(load, expansion){
+
+//    QString path = "../tests/videos/video";
+//    bool ret;
+//    testing::internal::CaptureStderr();
+//    ret = load(path);
+//    EXPECT_EQ(true, ret);
+//    std::string output = testing::internal::GetCapturedStderr();
+
+//    EXPECT_EQ("", output);
+//}
 
 
-TEST(load, opened){
+//TEST(load, dir){
 
-    QString path = "../tests/videos/video.mp4";
-    load(path);
-    bool ret;
-    path = "../tests/videos/video";
-    testing::internal::CaptureStderr();
-    testing::internal::CaptureStdout();
-    ret = load(path);
-    EXPECT_EQ(true, ret);
-    std::string cout = testing::internal::GetCapturedStdout();
-    std::string output = testing::internal::GetCapturedStderr();
+//    QString path = "../tests/videos/video_denied";
+//    bool ret;
+//    testing::internal::CaptureStderr();
+//    ret = load(path);
+//    EXPECT_EQ(false, ret);
+//    std::string output = testing::internal::GetCapturedStderr();
 
-    EXPECT_EQ("", output);
-    EXPECT_EQ("", cout);
-}
+//    EXPECT_EQ("No such file found\n", output);
+//}
+
+
+//TEST(load, opened){
+
+//    QString path = "../tests/videos/video.mp4";
+//    load(path);
+//    bool ret;
+//    path = "../tests/videos/video";
+//    testing::internal::CaptureStderr();
+//    testing::internal::CaptureStdout();
+//    ret = load(path);
+//    EXPECT_EQ(true, ret);
+//    std::string cout = testing::internal::GetCapturedStdout();
+//    std::string output = testing::internal::GetCapturedStderr();
+
+//    EXPECT_EQ("", output);
+//    EXPECT_EQ("", cout);
+//}
 
 
 //################################################################
@@ -221,124 +221,124 @@ TEST(convert, range){
 //################################################################
 
 
-TEST(process, correct){
+//TEST(process, correct){
 
-    cv::VideoCapture cap("../tests/videos/video.mp4");
-    cv::Mat frame;
-    cap >> frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
+//    cv::VideoCapture cap("../tests/videos/video.mp4");
+//    cv::Mat frame;
+//    cap >> frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
 
-    process(&frame, hsv, 20, 20, 20, 20);
+//    process(&frame, hsv, 20, 20, 20, 20);
 
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "");
-}
-
-
-TEST(process, timing_soft){
-
-    cv::VideoCapture cap("../tests/videos/video_soft.mp4");
-    cv::Mat frame;
-    cap >> frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
-    int end;
-    int start = clock();
-    process(&frame, hsv, 0, 0, 0, 0);
-    end = clock();
-    double time = (float)(end - start) / CLOCKS_PER_SEC;
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "");
-    EXPECT_LE(time, 0.01);
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "");
+//}
 
 
-}
+//TEST(process, timing_soft){
 
-TEST(process, timing_normal){
-
-    cv::VideoCapture cap("../tests/videos/video.mp4");
-    cv::Mat frame;
-    cap >> frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
-    int end;
-    int start = clock();
-    process(&frame, hsv, 180, 50, 50, 50);
-    end = clock();
-    double time = (float)(end - start) / CLOCKS_PER_SEC;
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "");
-    EXPECT_LE(time, 0.1);
+//    cv::VideoCapture cap("../tests/videos/video_soft.mp4");
+//    cv::Mat frame;
+//    cap >> frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
+//    int end;
+//    int start = clock();
+//    process(&frame, hsv, 0, 0, 0, 0);
+//    end = clock();
+//    double time = (float)(end - start) / CLOCKS_PER_SEC;
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "");
+//    EXPECT_LE(time, 0.01);
 
 
-}
+//}
+
+//TEST(process, timing_normal){
+
+//    cv::VideoCapture cap("../tests/videos/video.mp4");
+//    cv::Mat frame;
+//    cap >> frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
+//    int end;
+//    int start = clock();
+//    process(&frame, hsv, 180, 50, 50, 50);
+//    end = clock();
+//    double time = (float)(end - start) / CLOCKS_PER_SEC;
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "");
+//    EXPECT_LE(time, 0.1);
+
+
+//}
 
 
 
-TEST(process, timing_hard){
+//TEST(process, timing_hard){
 
-    cv::VideoCapture cap("../tests/videos/video_4k.mp4");
-    cv::Mat frame;
-    cap >> frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
-    int end;
-    int start = clock();
-    process(&frame, hsv, 359, 100, 100, 100);
-    end = clock();
-    double time = (float)(end - start) / CLOCKS_PER_SEC;
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "");
-    EXPECT_LE(time, 2);
+//    cv::VideoCapture cap("../tests/videos/video_4k.mp4");
+//    cv::Mat frame;
+//    cap >> frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
+//    int end;
+//    int start = clock();
+//    process(&frame, hsv, 359, 100, 100, 100);
+//    end = clock();
+//    double time = (float)(end - start) / CLOCKS_PER_SEC;
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "");
+//    EXPECT_LE(time, 2);
 
-}
+//}
 
-TEST(process, empty){
+//TEST(process, empty){
 
-    cv::Mat frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
+//    cv::Mat frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
 
-    process(&frame, hsv, 20, 20, 20, 20);
+//    process(&frame, hsv, 20, 20, 20, 20);
 
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "ERROR: fame has no data\n");
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "ERROR: fame has no data\n");
 
-}
+//}
 
-TEST(process, range){
+//TEST(process, range){
 
-    cv::VideoCapture cap("../tests/videos/video.mp4");
-    cv::Mat frame;
-    cap >> frame;
-    HSV hsv;
-    hsv.H = 180;
-    hsv.S = 0.5;
-    hsv.V = 0.032;
-    testing::internal::CaptureStderr();
+//    cv::VideoCapture cap("../tests/videos/video.mp4");
+//    cv::Mat frame;
+//    cap >> frame;
+//    HSV hsv;
+//    hsv.H = 180;
+//    hsv.S = 0.5;
+//    hsv.V = 0.032;
+//    testing::internal::CaptureStderr();
 
-    process(&frame, hsv, 480, 0, -43, 100);
+//    process(&frame, hsv, 480, 0, -43, 100);
 
-    std::string output = testing::internal::GetCapturedStderr();
-    EXPECT_EQ(output, "ERROR: Invalid types range\n");
+//    std::string output = testing::internal::GetCapturedStderr();
+//    EXPECT_EQ(output, "ERROR: Invalid types range\n");
 
-}
+//}
 
 
 
