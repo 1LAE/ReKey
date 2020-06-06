@@ -21,7 +21,7 @@ HEADERS += \
     helper.h
 
 LIBS += \
-#        -L../opencv4/lib \
+        -L../opencv4/lib \
         -lopencv_core \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
