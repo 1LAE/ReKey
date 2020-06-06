@@ -19,6 +19,7 @@ LIBS += -lgcov \
     -lopencv_core \
     -lopencv_imgproc \
     -lopencv_imgcodecs \
+    -lopencv_video \
     -lopencv_videoio
 
 HEADERS += \
