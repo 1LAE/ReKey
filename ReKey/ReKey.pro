@@ -21,6 +21,7 @@ HEADERS += \
     helper.h
 
 LIBS += -lopencv_core \
+        -L/usr/local/lib \
         -lopencv_imgproc \
         -lopencv_imgcodecs \
         -lopencv_videoio \
