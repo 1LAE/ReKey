@@ -5,11 +5,16 @@
 #include <QDir>
 #include <iostream>
 #include <string>
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/core.hpp"
-#include "opencv2/videoio.hpp"
+//#include "opencv2/imgproc/imgproc.hpp"
+//#include "opencv2/imgcodecs.hpp"
+//#include "opencv2/core.hpp"
+//#include "opencv2/videoio.hpp"
 #include "helper.h"
+
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgcodecs/imgcodecs.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/videoio/videoio.hpp>
 
 using namespace cv;
 

@@ -4,7 +4,7 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG += opencv
+#CONFIG += opencv
 CONFIG += c++11
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -15,7 +15,8 @@ QMAKE_CFLAGS += -Wall -Wextra -Werror
 # gcov
 QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
-LIBS += -lgcov \
+LIBS += \
+    -lgcov \
     -lopencv_core \
     -lopencv_imgproc \
     -lopencv_imgcodecs \
