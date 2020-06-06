@@ -22,7 +22,7 @@ HEADERS += \
 
 LIBS += \
         -L../opencv4/lib \
-        -lopencv_videoio \
+#        -lopencv_videoio \
         -lopencv_core \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
