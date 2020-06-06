@@ -306,7 +306,6 @@ TEST(process, timing_hard){
 
 }
 
-
 TEST(process, empty){
 
     cv::Mat frame;

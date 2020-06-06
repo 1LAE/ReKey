@@ -7,11 +7,11 @@ before_install:
 
 install:
     - sudo apt update
-    - mkdir ./temp
-    - cd temp/
-    - wget https://rpmfind.net/linux/openmandriva/4.0/repository/x86_64/main/release/lib64dc1394_22-2.2.5-1-omv4000.x86_64.rpm
-    - rpm lib64dc*
-    - cd ..
+    # - mkdir ./temp
+    # - cd temp/
+    # - wget https://rpmfind.net/linux/openmandriva/4.0/repository/x86_64/main/release/lib64dc1394_22-2.2.5-1-omv4000.x86_64.rpm
+    # - rpm lib64dc*
+    # - cd ..
 
 
 addons:
