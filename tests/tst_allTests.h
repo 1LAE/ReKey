@@ -18,10 +18,9 @@ TEST(load,exist){
     QString path = "../tests/videos/video.mp4";
     bool ret;
     ret = load(path);
-
-
     ASSERT_EQ(ret, true);
 }
+
 
 TEST(load, empty){
 
