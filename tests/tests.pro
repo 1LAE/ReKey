@@ -4,7 +4,7 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
-#CONFIG += opencv
+CONFIG += opencv
 CONFIG += c++11
 
 DEFINES += QT_DEPRECATED_WARNINGS
