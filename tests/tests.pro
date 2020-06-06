@@ -17,7 +17,8 @@ QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += \
     -lgcov \
-    -L/usr/local/lib \
+#    -L/usr/local/lib \
+    -L/usr/lib/x86_64-linux-gnu \
     -lopencv_core \
     -lopencv_imgproc \
     -lopencv_imgcodecs \
