@@ -21,12 +21,12 @@ HEADERS += \
     helper.h
 
 LIBS += -lopencv_core \
-        -L/usr/local/lib \
+        -L../opencv4/lib \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
         -lopencv_video \
-#        -lopencv_imgcodecs \
-#        -lopencv_videoio
+        -lopencv_imgcodecs \
+        -lopencv_videoio
 
 INCLUDEPATH += ../opencv4/
 

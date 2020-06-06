@@ -117,6 +117,7 @@ TEST(toRGB, format_a){
 }
 
 
+
 TEST(toRGB, format_b){
 
     QString color = "helloo";
