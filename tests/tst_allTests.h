@@ -2,16 +2,16 @@
 #include <gmock/gmock-matchers.h>
 #include <QString>
 #include <ctime>
-#include "opencv2/core.hpp"
-#include "opencv2/imgproc.hpp"
-#include "opencv2/imgcodecs/imgcodecs.hpp"
-#include "opencv2/videoio/videoio.hpp"
+//#include "opencv2/core.hpp"
+//#include "opencv2/imgproc.hpp"
+//#include "opencv2/imgcodecs/imgcodecs.hpp"
+//#include "opencv2/videoio/videoio.hpp"
 #include "helper.h"
 
-//#include <opencv2/core.hpp>
-//#include <opencv2/imgproc.hpp>
-//#include <opencv2/imgcodecs/imgcodecs.hpp>
-//#include <opencv2/videoio/videoio.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs/imgcodecs.hpp>
+#include <opencv2/videoio/videoio.hpp>
 
 TEST(load,exist){
 
@@ -164,7 +164,6 @@ TEST(convert, correct_a){
     EXPECT_NEAR(hsv.H, 312.3, 0.1);
     EXPECT_NEAR(hsv.S, 0.329, 0.01);
     EXPECT_NEAR(hsv.V, 0.988, 0.01);
-
 
 }
 

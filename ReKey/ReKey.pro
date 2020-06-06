@@ -20,8 +20,9 @@ SOURCES += \
 HEADERS += \
     helper.h
 
-LIBS += -lopencv_core \
+LIBS += \
         -L../opencv4/lib \
+        -lopencv_core \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
         -lopencv_video \
