@@ -18,12 +18,12 @@ QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += \
     -lgcov \
     -L../opencv4/lib \
+    -lopencv_videoio \
 #    -L/usr/local/lib \
 #    -L/usr/lib/x86_64-linux-gnu \
     -lopencv_core \
     -lopencv_imgproc \
     -lopencv_video \
-    -lopencv_videoio \
     -lopencv_imgcodecs
 
 HEADERS += \
