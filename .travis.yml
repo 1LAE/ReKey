@@ -4,8 +4,15 @@ sudo: required
 
 before_install:
   - pip install --user cpp-coveralls
-  # - sudo apt-get install libav
-  # - sudo apt install libopencv-dev
+
+install:
+    - sudo apt update
+    - mkdir ./temp
+    - cd temp/
+    - wget https://rpmfind.net/linux/openmandriva/4.0/repository/x86_64/main/release/lib64dc1394_22-2.2.5-1-omv4000.x86_64.rpm
+    - rpm lib64dc*
+    - cd ..
+
 
 addons:
     apt:

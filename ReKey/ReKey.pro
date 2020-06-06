@@ -20,13 +20,14 @@ SOURCES += \
 HEADERS += \
     helper.h
 
+QMAKE_RPATHDIR += ../dependences/
+
 LIBS += \
         -L../opencv4/lib \
         -lopencv_videoio \
         -lopencv_core \
 #        -L/usr/lib/x86_64-linux-gnu \
         -lopencv_imgproc \
-        -lopencv_video \
         -lopencv_imgcodecs
 
 INCLUDEPATH += ../opencv4/

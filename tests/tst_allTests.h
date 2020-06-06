@@ -304,7 +304,6 @@ TEST(process, timing_hard){
     EXPECT_EQ(output, "");
     EXPECT_LE(time, 2);
 
-
 }
 
 
@@ -321,7 +320,6 @@ TEST(process, empty){
 
     std::string output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "ERROR: fame has no data\n");
-
 
 }
 
@@ -340,7 +338,6 @@ TEST(process, range){
 
     std::string output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "ERROR: Invalid types range\n");
-
 
 }
 
