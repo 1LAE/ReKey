@@ -11,7 +11,7 @@
 
 TEST(load,exist){
 
-    QString path = "/home/travis/build/1LAE/ReKey/tests/videos/video.mp4";
+    QString path = "./tests/videos/video.mp4";
     bool ret;
     ret = load(path);
     ASSERT_EQ(ret, true);
@@ -32,7 +32,7 @@ TEST(load, empty){
 
 TEST(load, expansion){
 
-    QString path = "home/travis/build/1LAE/ReKey/tests/videos/video";
+    QString path = "./tests/videos/video";
     bool ret;
     testing::internal::CaptureStderr();
     ret = load(path);
@@ -44,10 +44,10 @@ TEST(load, expansion){
 
 TEST(load, opened){
 
-    QString path = "/home/travis/build/1LAE/ReKey/tests/videos/video.mp4";
+    QString path = "./tests/videos/video.mp4";
     load(path);
     bool ret;
-    path = "/home/travis/build/1LAE/ReKey/tests/videos/video";
+    path = "/tests/videos/video";
     testing::internal::CaptureStderr();
     testing::internal::CaptureStdout();
     ret = load(path);
