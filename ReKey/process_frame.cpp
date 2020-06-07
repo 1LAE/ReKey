@@ -2,71 +2,71 @@
 #include <iostream>
 #include "helper.h"
 
-//#include <opencv2/core.hpp>
-//#include <opencv2/opencv.hpp>
-//#include <opencv2/videoio.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/videoio.hpp>
 
-//using namespace cv;
+using namespace cv;
 
-//void process(Mat* frame, HSV hsv, int hue, int sat, int val, int ai){
+void process(Mat* frame, HSV hsv, int hue, int sat, int val, int ai){
 
-//    if(hue < 0 || hue >= 360  || sat < 0 || sat > 100 || val < 0 || val > 100 || ai < 0 || ai > 100){
+    if(hue < 0 || hue >= 360  || sat < 0 || sat > 100 || val < 0 || val > 100 || ai < 0 || ai > 100){
 
-//        std::cerr << "ERROR: Invalid types range\n";
-//        return;
-//    }
+        std::cerr << "ERROR: Invalid types range\n";
+        return;
+    }
 
-//    if(!frame->data){
-//        std::cerr << "ERROR: fame has no data\n";
-//        return;
-//    }
-
-
-//    HSV f_hsv;
-//    RGB rgb;
-//    bool flag = false;
-//    if(ai > 0){
-//        ai = (ai / 20 * 2) + 1;
-//        flag = true;
-//    }
-
-//    int bottom = (hsv.H - hue / 2) < 0 ? (hsv.H - hue / 2 + 360) : (hsv.H - hue / 2);
-//    int top = (hsv.H + hue / 2) > 360 ? (hsv.H + hue / 2 - 360) : (hsv.H + hue / 2);
-
-//    for(int row = 0; row < frame->rows; row++){
-//        for(int col = 0; col < frame->cols; col++){
-
-//            rgb.b = (float)frame->at<Vec3b>(row, col)[0] / 255;
-//            rgb.g = (float)frame->at<Vec3b>(row, col)[1] / 255;
-//            rgb.r = (float)frame->at<Vec3b>(row, col)[2] / 255;
-
-//            f_hsv = convert(rgb);
+    if(!frame->data){
+        std::cerr << "ERROR: fame has no data\n";
+        return;
+    }
 
 
-//            /* For S,V */
-//            if(f_hsv.S <= hsv.S + ((float)sat / 100) && f_hsv.S > hsv.S - ((float)sat /100)){
-//                if(f_hsv.V <= hsv.V + ((float)val / 100) && f_hsv.V > hsv.V - ((float)val /100)){
-//                    if( top >= bottom ? ( f_hsv.H <= top && f_hsv.H > bottom ) : ( f_hsv.H <= top || f_hsv.H > bottom )){
+    HSV f_hsv;
+    RGB rgb;
+    bool flag = false;
+    if(ai > 0){
+        ai = (ai / 20 * 2) + 1;
+        flag = true;
+    }
 
-//                                frame->at<Vec3b>(row, col)[0] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
-//                                frame->at<Vec3b>(row, col)[1] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
-//                                frame->at<Vec3b>(row, col)[2] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
-//                                continue;
+    int bottom = (hsv.H - hue / 2) < 0 ? (hsv.H - hue / 2 + 360) : (hsv.H - hue / 2);
+    int top = (hsv.H + hue / 2) > 360 ? (hsv.H + hue / 2 - 360) : (hsv.H + hue / 2);
 
-//                    }
-//                }
-//            }
+    for(int row = 0; row < frame->rows; row++){
+        for(int col = 0; col < frame->cols; col++){
 
-//            frame->at<Vec3b>(row, col)[0] = 0x0;
-//            frame->at<Vec3b>(row, col)[1] = 0x0;
-//            frame->at<Vec3b>(row, col)[2] = 0x0;
+            rgb.b = (float)frame->at<Vec3b>(row, col)[0] / 255;
+            rgb.g = (float)frame->at<Vec3b>(row, col)[1] / 255;
+            rgb.r = (float)frame->at<Vec3b>(row, col)[2] / 255;
 
-//        }
-//    }
+            f_hsv = convert(rgb);
 
-//    if(flag){
-//        Mat buf;
-//        medianBlur(*frame, buf, ai);
-//        *frame = buf;
-//    }
-//}
+
+            /* For S,V */
+            if(f_hsv.S <= hsv.S + ((float)sat / 100) && f_hsv.S > hsv.S - ((float)sat /100)){
+                if(f_hsv.V <= hsv.V + ((float)val / 100) && f_hsv.V > hsv.V - ((float)val /100)){
+                    if( top >= bottom ? ( f_hsv.H <= top && f_hsv.H > bottom ) : ( f_hsv.H <= top || f_hsv.H > bottom )){
+
+                                frame->at<Vec3b>(row, col)[0] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
+                                frame->at<Vec3b>(row, col)[1] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
+                                frame->at<Vec3b>(row, col)[2] = (unsigned short)round(f_hsv.V/3*255*2) + (unsigned short)round(f_hsv.S/3*255);
+                                continue;
+
+                    }
+                }
+            }
+
+            frame->at<Vec3b>(row, col)[0] = 0x0;
+            frame->at<Vec3b>(row, col)[1] = 0x0;
+            frame->at<Vec3b>(row, col)[2] = 0x0;
+
+        }
+    }
+
+    if(flag){
+        Mat buf;
+        medianBlur(*frame, buf, ai);
+        *frame = buf;
+    }
+}
