@@ -6,7 +6,7 @@ before_install:
   - pip install --user cpp-coveralls
 
 install:
-    - sudo apt-get install -qq g++-7
+  - sudo apt-get install -qq g++-7
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
 
   # OpenCV dependencies - Details available at: http://docs.opencv.org/trunk/doc/tutorials/introduction/linux_install/linux_install.html
