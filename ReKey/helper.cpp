@@ -11,10 +11,10 @@
 //#include "opencv2/videoio.hpp"
 #include "helper.h"
 
-#include <imgproc.hpp>
-#include <imgcodecs.hpp>
-#include <core.hpp>
-#include <videoio.hpp>
+#include </usr/local/include/opencv4/opencv2/imgproc.hpp>
+#include </usr/local/include/opencv4/opencv2/imgcodecs.hpp>
+#include </usr/local/include/opencv4/opencv2/core.hpp>
+#include </usr/local/include/opencv4/opencv2/videoio.hpp>
 
 using namespace cv;
 
