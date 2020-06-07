@@ -47,7 +47,7 @@ TEST(load, opened){
     QString path = "./tests/videos/video.mp4";
     load(path);
     bool ret;
-    path = "/tests/videos/video";
+    path = "./tests/videos/video";
     testing::internal::CaptureStderr();
     testing::internal::CaptureStdout();
     ret = load(path);
