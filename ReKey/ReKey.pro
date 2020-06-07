@@ -13,20 +13,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         convert.cpp \
-#        helper.cpp \
+        helper.cpp \
         main.cpp \
-#        process_frame.cpp
+        process_frame.cpp
 
 HEADERS += \
     helper.h
 
-#QMAKE_RPATHDIR += ../dependences/
 
-#LIBS += \
-#        -lopencv_videoio \
-#        -lopencv_core \
-#        -lopencv_imgproc \
-#        -lopencv_imgcodecs
-
-#INCLUDEPATH += /usr/local/include/
+LIBS += \
+        -lopencv_videoio \
+        -lopencv_core \
+        -lopencv_imgproc \
+        -lopencv_imgcodecs
 

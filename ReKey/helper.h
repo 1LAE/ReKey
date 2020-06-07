@@ -4,24 +4,21 @@
 #include <QObject>
 #include <QString>
 #include <string>
-//#include "opencv2/core.hpp"
-//#include "opencv2/videoio.hpp"
-
-//#include <opencv2/core.hpp>
-//#include <opencv2/videoio.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/videoio.hpp>
 
 
-//typedef struct Video{
+typedef struct Video{
 
-//    QString path;
-//    bool loaded = false;
-//    int width;
-//    int height;
-//    double fps;
-//    int totalFrames;
-//    cv::VideoCapture capture;
+    QString path;
+    bool loaded = false;
+    int width;
+    int height;
+    double fps;
+    int totalFrames;
+    cv::VideoCapture capture;
 
-//}Video;
+}Video;
 
 typedef struct HSV{
 
@@ -39,10 +36,10 @@ typedef struct RGB{
 }RGB;
 
 
-//    bool load(QString path);
-//    void prerender(QString color, int hue, int sat, int val, int ai, int time);
+    bool load(QString path);
+    void prerender(QString color, int hue, int sat, int val, int ai, int time);
 
-//    void process(cv::Mat* frame, HSV hsv, int hue, int sat, int val, int ai);
+    void process(cv::Mat* frame, HSV hsv, int hue, int sat, int val, int ai);
     HSV convert(RGB rgb);
     RGB toRGB(QString color);
 

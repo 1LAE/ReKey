@@ -3,7 +3,5 @@
 int main()
 {
 
-//    load("aaaaa");
-
     return 0;
 }
