@@ -43,45 +43,10 @@ bool load(QString path){
     vid.width = vid.capture.get(CAP_PROP_FRAME_WIDTH);
 
     Mat image;
-    image = imread((const std::string)"../ReKey/template.jpg", IMREAD_COLOR);
-    if(image.empty()){
-        return false;
-    }
+    image = imread((const std::string)"./ReKey/template.jpg", IMREAD_COLOR);
 
     imwrite("../Rekey/image.jpg", image);
     imwrite("../Rekey/image_alpha.jpg", image);
 
     return true;
-}
-
-
-void prerender(QString key, int hue, int sat, int val, int ai, int time){
-
-    if(time == 100){
-        time = 99;
-    }
-
-    int current = round(vid.totalFrames * ((double)time / 100));
-
-    Mat frame, prerender;
-
-    vid.capture.set(CAP_PROP_POS_FRAMES, current);
-    vid.capture.read(frame);
-    vid.capture.read(prerender);
-
-    process(&prerender, convert(toRGB(key)), hue, sat, val, ai);
-
-    double scale;
-    if((double)vid.width / vid.height >= (double)250/140){
-        scale = (double)500 / vid.width;
-    } else {
-        scale = (double)280 / vid.height;
-    }
-
-    Size size;
-    Mat crop;
-    resize(frame, crop, size, scale, scale, INTER_LINEAR);
-    imwrite("../ReKey/image.jpg", crop);
-    resize(prerender, crop, size, scale, scale, INTER_LINEAR);
-    imwrite("../ReKey/image_alpha.jpg", crop);
 }
