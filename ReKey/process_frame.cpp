@@ -2,9 +2,9 @@
 #include <iostream>
 #include "helper.h"
 
-#include <core.hpp>
-#include <opencv.hpp>
-#include <videoio.hpp>
+#include <opencv4/opencv2/core.hpp>
+#include <opencv4/opencv2/opencv.hpp>
+#include <opencv4/opencv2/videoio.hpp>
 
 using namespace cv;
 

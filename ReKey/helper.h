@@ -4,8 +4,8 @@
 #include <QObject>
 #include <QString>
 #include <string>
-#include <core.hpp>
-#include <videoio.hpp>
+#include <opencv4/opencv2/core.hpp>
+#include <opencv4/opencv2/videoio.hpp>
 
 
 typedef struct Video{

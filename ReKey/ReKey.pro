@@ -20,9 +20,7 @@ SOURCES += \
 HEADERS += \
     helper.h
 
-INCLUDEPATH +=   /usr/local/include/ \
-                 /usr/include/ \
-                 ../
+INCLUDEPATH +=   /usr/local/include \
 
 
 LIBS += \
