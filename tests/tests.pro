@@ -16,10 +16,10 @@ QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += \
     -lgcov \
-    -lopencv_videoio \
-    -lopencv_core \
-    -lopencv_imgproc \
-    -lopencv_imgcodecs
+#    -lopencv_videoio \
+#    -lopencv_core \
+#    -lopencv_imgproc \
+#    -lopencv_imgcodecs
 
 HEADERS += \
         ../ReKey/helper.h \
@@ -33,5 +33,5 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += \
     ../ReKey \
-    /usr/local/include/opencv4
+#    /usr/local/include/opencv4
 
