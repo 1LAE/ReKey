@@ -20,12 +20,12 @@ SOURCES += \
 HEADERS += \
     helper.h
 
-#INCLUDEPATH +=   /usr/local/include/opencv4 \
+INCLUDEPATH +=   /usr/local/include/opencv4 \
 
 
-#LIBS += \
-#        -lopencv_videoio \
-#        -lopencv_core \
-#        -lopencv_imgproc \
-#        -lopencv_imgcodecs
+LIBS += \
+        -lopencv_videoio \
+        -lopencv_core \
+        -lopencv_imgproc \
+        -lopencv_imgcodecs
 
