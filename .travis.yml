@@ -6,8 +6,8 @@ before_install:
   - pip install --user cpp-coveralls
 
 install:
-  - sudo apt-get install -qq g++-7
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+  # - sudo apt-get install -qq g++-7
+  # - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
 
   # OpenCV dependencies - Details available at: http://docs.opencv.org/trunk/doc/tutorials/introduction/linux_install/linux_install.html
   - sudo apt-get install -y build-essential
@@ -40,22 +40,22 @@ install:
 
 
 addons:
-    # apt:
-    #   sources:
-    #   - ubuntu-toolchain-r-test
-    #   packages:
-    #   - gcc-7
-    #   - g++-7
+    apt:
+      sources:
+      - ubuntu-toolchain-r-test
+      packages:
+      - gcc-7
+      - g++-7
     sonarcloud:
       organization: "1lae"
       token:
          secure: "997037cc3da8ae31f9918e4c3d92a5df42c89dd0"
 
 script:
-  # - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc
-  # - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-7 /usr/bin/g++
-  # - gcc --version
-  # - g++ --version
+  - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc
+  - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-7 /usr/bin/g++
+  - gcc --version
+  - g++ --version
   - qmake
   - make
   - ./tests/tests
