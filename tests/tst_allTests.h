@@ -4,10 +4,10 @@
 #include <ctime>
 #include "helper.h"
 
-#include <opencv/core.hpp>
-#include <opencv/imgproc.hpp>
-#include <opencv/imgcodecs.hpp>
-#include <opencv/videoio.hpp>
+#include <core.hpp>
+#include <imgproc.hpp>
+#include <imgcodecs.hpp>
+#include <videoio.hpp>
 
 TEST(load,exist){
 
