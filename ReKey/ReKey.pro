@@ -20,6 +20,10 @@ SOURCES += \
 HEADERS += \
     helper.h
 
+INCLUDEPATH +=   /usr/local/include/ \
+                 /usr/include/ \
+                 ../
+
 
 LIBS += \
         -lopencv_videoio \

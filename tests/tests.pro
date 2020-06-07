@@ -33,5 +33,8 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += \
     ../ReKey \
+    /usr/local/include/ \
+    /usr/include/ \
+    ../
 
 
