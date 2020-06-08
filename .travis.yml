@@ -26,7 +26,7 @@ install:
   - cmake -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_EXAMPLES=OFF -D BUILD_opencv_apps=OFF -D BUILD_DOCS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF -D CMAKE_INSTALL_PREFIX=/usr/local ..
 
   # Run 'make' with four threads.
-  - make -j3
+  - make -j7
 
   # Install to OS.
   - sudo make install

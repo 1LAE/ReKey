@@ -28,10 +28,6 @@ bool load(QString path){
     }
     file.close();
 
-    if(vid.capture.isOpened()){
-        vid.capture.release();
-    }
-
 
     vid.totalFrames = vid.capture.get(CAP_PROP_FRAME_COUNT);
     vid.fps = vid.capture.get(CAP_PROP_FPS);
