@@ -48,8 +48,7 @@ addons:
       - g++-7
     sonarcloud:
       organization: "1lae"
-      token:
-         secure: "LywzNRSXqeY3XaZT9alkF2or5XaXMdYaj//kUt4VdfCkx6Dh1b9FIw8xUkPcgWJAzsQkhHrlZ4FeYH/KVw0uf3YZ+LlvUgFlG7iAm2NWS+f5Toe1pnCjdoLeOKWtxsMbw6D//zwwrQGZ8TVYOfBfcbftWoJQf6KwGXOwbLNvj/7Xp66RGL9YeY0sgDhD8Mr7OTblXhInvG70WTjd9vaBhj2/P0gJlJ3fFztZauQHGbU/fegGQWKSRSIzFs01dQBvCD3IfSLKPbET3DRUTo73+8EVBODibDgao6hTc4aqtpw/V29UeKC9v357aT67GUV4tRl+AxhHaSpci6xkfslnXQy/ahDUcm3GpXRSWv+ANyzd5FlnW5zs+NzWlDagakChrikDnPdZUgWWii9cd4gGykO7YO5ptDqeLCh/FfxTQO5mG7f5EX7alAEs3FrtmM/A03zswzV7r7zdTstZKNn8Atj+n8r27I8zIqY48MR4cZlU2Tdb3wh6aC3AxwRxrfqTfukkdXxcUWpJvbFZe25gsCOCNrB7IE/qnDS/1rsDrgMN3zyITElzlMS/GSLA6Q8XrlaOvUqYeeoVOYW1+D1fdN9WJ9CXDrUHR+hrMNg9U93oqUzap5zMpf/HMsr7ASOPUSK7oQk1zY7+5QOD/6Wc+0om72jh019/a5FUZv3MoXI="
+
 
 script:
   - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc
