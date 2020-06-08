@@ -32,10 +32,6 @@ bool load(QString path){
         vid.capture.release();
     }
 
-    if(!(bool)vid.capture.open(path.toStdString())){
-        std::cerr << "Cant open video file\n";
-        return false;
-    }
 
     vid.totalFrames = vid.capture.get(CAP_PROP_FRAME_COUNT);
     vid.fps = vid.capture.get(CAP_PROP_FPS);

@@ -59,19 +59,6 @@ TEST(load, opened){
     EXPECT_EQ("", cout);
 }
 
-TEST(load, txt){
-
-    QString path = "./tests/videos/video.txt";
-    load(path);
-    bool ret;
-    testing::internal::CaptureStderr();
-    ret = load(path);
-    EXPECT_EQ(false, ret);
-    std::string output = testing::internal::GetCapturedStderr();
-
-    EXPECT_EQ("Cant open video file\n", output);
-
-}
 
 
 //################################################################
